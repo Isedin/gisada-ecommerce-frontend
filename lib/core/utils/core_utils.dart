@@ -15,4 +15,14 @@ abstract class CoreUtils {
         ? darkModeColour
         : lightModeColour;
   }
+
+  static void rebuildAllChildren([BuildContext? context]) {
+    void rebuild(Element el) {
+      el.markNeedsBuild();
+      el.visitChildren(rebuild);
+    }
+
+    // ((context ?? rootNavigatorKey.currentContext!) as Element)
+    //     .visitChildren(rebuild);
+  }
 }
