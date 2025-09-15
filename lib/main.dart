@@ -1,5 +1,5 @@
 import 'package:argentdev_ecommerce_flutter/core/ressources/styles/colours.dart';
-import 'package:argentdev_ecommerce_flutter/core/ressources/styles/text.dart';
+import 'package:argentdev_ecommerce_flutter/core/services/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,8 +22,9 @@ class MainApp extends StatelessWidget {
           foregroundColor: Colours.lightThemePrimaryTextColour),
       useMaterial3: true,
     );
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Gisada E-Commerce',
+      routerConfig: router,
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
             theme: theme,
@@ -34,11 +35,6 @@ class MainApp extends StatelessWidget {
                   foregroundColor: Colours.lightThemeWhiteColour,
                 ),
           ),
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello, World!', style: TextStyles.headingRegular.copyWith(color: Colours.classicAdaptiveTextColour(context)),),
-        ),
-      ),
     );
   }
 }
